@@ -1,25 +1,22 @@
 import React, { Component } from 'react'
-import { Image, StyleSheet, View } from 'react-native'
+import { Image, StyleSheet, View, createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-native'
 import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base'
-import CardSubjectI from '../components/CardSubjectI'
-import ContentScreen from './ContentScreen'
-import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation'
 
-export default class LearnScreen extends React.Component {
+export default class CardSubjectI extends Component {
 	static navigationOptions = {
 		title: 'Learn'
 	}
-
 	render() {
 		const { navigate } = this.props.navigation
 		return (
 			<Container>
 				<Content>
 					<Card>
-						<CardItem header button onPress={() => navigate('Content')}>
+						<CardItem header button>
 							<Left>
 								<Thumbnail source={require('../pics/1.png')} />
 								<Body>
+									<Button title="Go to Jane's profile" onPress={() => navigate('Content')} />
 									<Text>Discrete Math</Text>
 									<Text note>click here to learn</Text>
 								</Body>
@@ -48,11 +45,3 @@ export default class LearnScreen extends React.Component {
 		)
 	}
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		paddingTop: 15,
-		backgroundColor: '#fff'
-	}
-})
