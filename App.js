@@ -1,115 +1,12 @@
-import React , { Component } from 'react'
+import React, { Component } from 'react'
 import { Platform, StatusBar, StyleSheet, View, AppRegistry } from 'react-native'
-import { AppLoading, Asset, Font, Icon } from 'expo'
-import { createStackNavigator, createAppContainer,createSwitchNavigator, createBottomTabNavigator } from 'react-navigation'
 import AppNavigator from './navigation/AppNavigator'
-import LearnScreen from './screens/LearnScreen'
-import ExerciseScreen from './screens/ExerciseScreen'
-import MeScreen from './screens/MeScreen'
-import ContentScreen from './screens/ContentScreen'
-import MainTabNavigator from './navigation/MainTabNavigator'
-// AppRegistry.registerComponent();
-// class App extends React.Component {
-// 	// async componentWillMount() {
-// 	//   await Expo.Font.loadAsync({
-// 	//     'Roboto': require('native-base/Fonts/Roboto.ttf'),
-// 	//     'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
-// 	//   });
-// 	//   await Font.loadAsync(
-// 	//     'antoutline',
-// 	//     // eslint-disable-next-line
-// 	//     require('@ant-design/icons-react-native/fonts/antoutline.ttf')
-// 	//   );
-
-// 	//   await Font.loadAsync(
-// 	//     'antfill',
-// 	//     // eslint-disable-next-line
-// 	//     require('@ant-design/icons-react-native/fonts/antfill.ttf')
-// 	//   );
-// 	// }
-// 	state = {
-// 		isLoadingComplete: false
-// 	}
-
-// 	render() {
-// 		// if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
-// 		//   return (
-// 		//     <AppLoading
-// 		//       startAsync={this._loadResourcesAsync}
-// 		//       onError={this._handleLoadingError}
-// 		//       onFinish={this._handleFinishLoading}
-// 		//     />
-// 		//   );
-// 		// } else {
-// 		return (
-// 			<View style={styles.container}>
-// 				{Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-{
-}
-// 			</View>
-// 		)
-// 	}
-// }
-// ------------------------- work !
-
-
-
-// const MainNavigator = createStackNavigator({
-// 	Learn: { screen: LearnScreen },
-//   Content: { screen: ContentScreen },
-//   Main: MainTabNavigator,
-// })
-
-// const App = createAppContainer(	createSwitchNavigator({
-//   Home: MainNavigator,
-//   Nav: MainTabNavigator,
-// }))
-// export default App
 
 export default class App extends Component {
-  render() {
-    return (
-      // <View>
-        <AppNavigator />
-      // </View>
-    )
-  }
+	render() {
+		return <AppNavigator />
+	}
 }
-
-// --------------------------------
-
-// constcreateAppContainer(
-// 	createSwitchNavigator({
-// 		Main: MainTabNavigator
-// 	})
-// )
-
-// _loadResourcesAsync = async () => {
-//   return Promise.all([
-//     Asset.loadAsync([
-//       require('./assets/images/robot-dev.png'),
-//       require('./assets/images/robot-prod.png'),
-//     ]),
-//     Font.loadAsync({
-//       // This is the font that we are using for our tab bar
-//       ...Icon.Ionicons.font,
-//       // We include SpaceMono because we use it in HomeScreen.js. Feel free
-//       // to remove this if you are not using it in your app
-//       'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
-//     }),
-
-//   ]);
-// };
-
-// _handleLoadingError = error => {
-//   // In this case, you might want to report the error to your error
-//   // reporting service, for example Sentry
-//   console.warn(error);
-// };
-
-// _handleFinishLoading = () => {
-//   this.setState({ isLoadingComplete: true });
-// };
 
 const styles = StyleSheet.create({
 	container: {

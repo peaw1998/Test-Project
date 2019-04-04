@@ -5,10 +5,14 @@ import TabBarIcon from '../components/TabBarIcon'
 import LearnScreen from '../screens/LearnScreen'
 import ExerciseScreen from '../screens/ExerciseScreen'
 import MeScreen from '../screens/MeScreen'
+import ContentScreen from '../screens/ContentScreen'
 
 export const LearnStack = createStackNavigator({
 	Learn: {
 		screen: LearnScreen
+	},
+	Content: {
+		screen: ContentScreen
 	}
 })
 LearnStack.navigationOptions = {
