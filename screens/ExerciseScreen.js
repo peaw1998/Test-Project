@@ -9,12 +9,13 @@ export default class ExerciseScreen extends React.Component {
 	}
 
 	render() {
+		const { navigate } = this.props.navigation
 		return (
 			<View style={styles.container}>
 				<Container>
 					<Content padder>
 						<Card>
-							<CardItem header button>
+							<CardItem header button  onPress={() => navigate('Lesson1')}>
 								<Text>Lesson 1</Text>
 								<Text note> ประพจน์</Text>
 							</CardItem>

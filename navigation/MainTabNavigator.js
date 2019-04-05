@@ -6,6 +6,7 @@ import LearnScreen from '../screens/LearnScreen'
 import ExerciseScreen from '../screens/ExerciseScreen'
 import MeScreen from '../screens/MeScreen'
 import ContentScreen from '../screens/ContentScreen'
+import Lesson1Screen from '../screens/Lesson1Screen'
 
 export const LearnStack = createStackNavigator({
 	Learn: {
@@ -24,6 +25,9 @@ LearnStack.navigationOptions = {
 export const ExerciseStack = createStackNavigator({
 	Exercise: {
 		screen: ExerciseScreen
+	},
+	Lesson1: {
+		screen: Lesson1Screen
 	}
 })
 ExerciseStack.navigationOptions = {
