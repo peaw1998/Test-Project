@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { ScrollView, StyleSheet } from 'react-native'
-import { Container, Header, Content, Card, CardItem, H1,Icon, View, Text, Body, Button } from 'native-base'
+import { Container, Header, Content, Card, CardItem, H1, Icon, View, Text, Body, Button, Toast } from 'native-base'
 import { ExpoLinksView } from '@expo/samples'
 
 export default class Lesson1Screen extends React.Component {
@@ -14,11 +14,13 @@ export default class Lesson1Screen extends React.Component {
 			<View style={styles.container}>
 				<Container>
 					<H1 style={font.center}>1.ข้อใดต่อไปนี้เป็นประพจน์หรือไม่</H1>
-					<Button iconLeft transparent primary>
+					<H1> </H1>
+					<H1>    1) 2 + 5 = 7</H1>
+					<Button large iconLeft transparent primary >
 						<Icon name='ios-checkmark-circle' />
 						<Text>เป็น</Text>
 					</Button>
-					<Button iconLeft transparent primary>
+					<Button large iconLeft transparent primary>
 						<Icon name='ios-close-circle' />
 						<Text>ไม่เป็น</Text>
 					</Button>
