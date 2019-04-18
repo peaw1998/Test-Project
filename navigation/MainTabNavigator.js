@@ -7,6 +7,8 @@ import ExerciseScreen from '../screens/ExerciseScreen'
 import MeScreen from '../screens/MeScreen'
 import ContentScreen from '../screens/ContentScreen'
 import Lesson1Screen from '../screens/Lesson1Screen'
+import Lesson2Screen from '../screens/Lesson2Screen'
+
 
 export const LearnStack = createStackNavigator({
 	Learn: {
@@ -28,6 +30,9 @@ export const ExerciseStack = createStackNavigator({
 	},
 	Lesson1: {
 		screen: Lesson1Screen
+	},
+	Lesson2: {
+		screen: Lesson2Screen
 	}
 })
 ExerciseStack.navigationOptions = {
@@ -52,3 +57,4 @@ export default createBottomTabNavigator({
 	Exercise: ExerciseStack,
 	Me: MeStack
 })
+

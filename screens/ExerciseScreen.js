@@ -15,13 +15,13 @@ export default class ExerciseScreen extends React.Component {
 				<Container>
 					<Content padder>
 						<Card>
-							<CardItem header button  onPress={() => navigate('Lesson1')}>
+							<CardItem header button onPress={() => navigate('Lesson1')}>
 								<Text>Lesson 1</Text>
 								<Text note> ประพจน์</Text>
 							</CardItem>
 						</Card>
 						<Card>
-							<CardItem header button>
+							<CardItem header button onPress={() => navigate('Lesson2')}>
 								<Text>Lesson 2</Text>
 								<Text note> ตรรกศาตร์ภาคแสดง</Text>
 							</CardItem>
