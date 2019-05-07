@@ -22,71 +22,157 @@ export default class Lesson1Screen extends React.Component {
         No3False: true,
         No4True: true,
         No4False: true,
+        answer : [],
+        result : 0,
+        count : 0,
+        statusSM1 : false ,
+        statusSM2 : false ,
+        statusSM3 : false ,
+        statusSM4 : false ,
+    
 
 
     }
 
-    No1T = () => {
-        this.setState({
-            count1: this.state.count1 + 1,
-            No1True: false,
-            No1False: true
-        })
-    }
-    No1F = () => {
-        this.setState({
-            // count: this.state.count - 1,
-            No1True: true,
-            No1False: false
-        })
-    }
-    No2T = () => {
-        this.setState({
-            count2: this.state.count2 + 1,
-            No2True: false,
-            No2False: true
-        })
-    }
-    No2F = () => {
-        this.setState({
-            // count: this.state.count - 1,
-            No2True: true,
-            No2False: false
-        })
-    }
-    No3T = () => {
-        this.setState({
-            count3: this.state.count3 + 1,
-            No3True: false,
-            No3False: true
-        })
-    }
-    No3F = () => {
-        this.setState({
-            // count: this.state.count - 1,
-            No3True: true,
-            No3False: false
-        })
-    }
-    No4T = () => {
-        this.setState({
-            count4: this.state.count4 + 1,
-            No4True: false,
-            No4False: true
-        })
-    }
-    No4F = () => {
-        this.setState({
-            // count: this.state.count - 1,
-            No4True: true,
-            No4False: false
-        })
-    }
     resetCount = () => {
         this.setState({ count: 0 })
     }
     showResult = () => {
-        this.setState({ isResult: true })
+        
+        if(this.state.statusSM1&&this.state.statusSM2&&this.state.statusSM3&&this.state.statusSM4){
+            this.setState({ isResult: true })
+        }else{
+            alert("กรุณายืนยันคำตอบ")
+        }
+        
+    }
+    onPressInChoice = (event) =>{
+        let clicked 
+        if(event === 'No1T'){
+                this.setState({
+                    answer: this.state.answer + '1',
+                    No1True: false,
+                    No1False: true
+                },()=>{
+                    let index =this.state.answer.length
+                    this.setState({
+                        count1 : +this.state.answer[index-1]
+                    })
+                })
+                
+            
+        }else if(event === 'No1F'){
+            
+                this.setState({
+                    answer: this.state.answer + '0',
+                    No1True: true,  
+                    No1False: false
+                },()=>{
+                    let index =this.state.answer.length
+                    this.setState({
+                        count1 :+this.state.answer[index-1]
+                    })
+                })
+                
+                
+            
+        }else if(event === 'No2T'){
+            this.setState({
+                answer: this.state.answer + '1',
+                No2True: false,
+                No2False: true
+            },()=>{
+                let index =this.state.answer.length
+                this.setState({
+                    count2 : +this.state.answer[index-1]
+                })
+            })
+        }else if(event === 'No2F'){
+            this.setState({
+                answer: this.state.answer + '0',
+                No2True: true,  
+                No2False: false
+            },()=>{
+                let index =this.state.answer.length
+                this.setState({
+                    count2 :+this.state.answer[index-1]
+                })
+            })
+        }else if(event === 'No3T'){
+            this.setState({
+                answer: this.state.answer + '0',
+                No3True: false,
+                No3False: true
+            },()=>{
+                let index =this.state.answer.length
+                this.setState({
+                    count3 : +this.state.answer[index-1]
+                })
+            })
+        }else if(event === 'No3F'){
+            this.setState({
+                answer: this.state.answer + '1',
+                No3True: true,  
+                No3False: false
+            },()=>{
+                let index =this.state.answer.length
+                this.setState({
+                    count3 :+this.state.answer[index-1]
+                })
+            })
+        }else if(event === 'No4T'){
+            this.setState({
+                answer: this.state.answer + '0',
+                No4True: false,
+                No4False: true
+            },()=>{
+                let index =this.state.answer.length
+                this.setState({
+                    count4 : +this.state.answer[index-1]
+                })
+            })
+        }else if(event === 'No4F'){
+            this.setState({
+                answer: this.state.answer + '1',
+                No4True: true,  
+                No4False: false
+            },()=>{
+                let index =this.state.answer.length
+                this.setState({
+                    count4 :+this.state.answer[index-1]
+                })
+            })
+        }
+        
+        
+        
+    }
+    submit = (event) =>{
+        if(event === 'sm1'){
+            this.setState({
+                No1True: false,
+                No1False: false,
+                statusSM1 : true,
+            })
+        }else if(event === 'sm2'){
+            this.setState({
+                No2True: false,
+                No2False: false,
+                statusSM2 : true,
+            })
+        }else if(event === 'sm3'){
+            this.setState({
+                No3True: false,
+                No3False: false,
+                statusSM3 : true,
+            })
+        }else if(event === 'sm4'){
+            this.setState({
+                No4True: false,
+                No4False: false,
+                statusSM4 : true,
+            })
+        }
     }
 
     render() {
@@ -102,16 +188,22 @@ export default class Lesson1Screen extends React.Component {
                                 <H1> </H1>
                                 <H1>    1) 2 + 5 = 7</H1>
                                 <Text> </Text>
-                                <Button block success onPress={this.No1T} disabled={!this.state.No1True}>
+                                <Button block success onPress={()=>this.onPressInChoice('No1T')} disabled={!this.state.No1True}>
                                     <Icon name='ios-checkmark-circle' />
                                     <Text>เป็น</Text>
                                 </Button>
                                 <Text> </Text>
-                                <Button block danger onPress={this.No1F} disabled={!this.state.No1False}>
+                                <Button block danger onPress={()=>this.onPressInChoice('No1F')}  disabled={!this.state.No1False}>
                                     <Icon name='ios-close-circle' />
                                     <Text>ไม่เป็น</Text>
                                 </Button>
+                                <Text> </Text>
+                                <Button block Primary onPress={()=>this.submit('sm1')} >
+                                    <Text>ยืนยัน</Text>
+                                </Button>
                             </Container>
+                            
+                            
                         </View>
                     </Tab>
                     <Tab heading="No.2">
@@ -121,14 +213,18 @@ export default class Lesson1Screen extends React.Component {
                                 <H1> </H1>
                                 <H2>    2) ไมอามี่เป็นเมืองหลวงของแคนาดา</H2>
                                 <Text> </Text>
-                                <Button block success onPress={this.No2T} disabled={!this.state.No2True}>
+                                <Button block success onPress={()=>this.onPressInChoice('No2T')}  disabled={!this.state.No2True}>
                                     <Icon name='ios-checkmark-circle' />
                                     <Text>เป็น</Text>
                                 </Button>
                                 <Text> </Text>
-                                <Button block danger onPress={this.No2F} disabled={!this.state.No2False}>
+                                <Button block danger onPress={()=>this.onPressInChoice('No2F')}  disabled={!this.state.No2False}>
                                     <Icon name='ios-close-circle' />
                                     <Text>ไม่เป็น</Text>
+                                </Button>
+                                <Text> </Text>
+                                <Button block Primary onPress={()=>this.submit('sm2')} >
+                                    <Text>ยืนยัน</Text>
                                 </Button>
                             </Container>
                         </View>
@@ -140,14 +236,18 @@ export default class Lesson1Screen extends React.Component {
                                 <H1> </H1>
                                 <H1>    3) x + y = 10</H1>
                                 <Text> </Text>
-                                <Button block success onPress={this.No3T} disabled={!this.state.No3True} >
+                                <Button block success onPress={()=>this.onPressInChoice('No3T')}  disabled={!this.state.No3True} >
                                     <Icon name='ios-checkmark-circle' />
                                     <Text>เป็น</Text>
                                 </Button>
                                 <Text> </Text>
-                                <Button block danger onPress={this.No3F} disabled={!this.state.No3False}>
+                                <Button block danger onPress={()=>this.onPressInChoice('No3F')}  disabled={!this.state.No3False}>
                                     <Icon name='ios-close-circle' />
                                     <Text>ไม่เป็น</Text>
+                                </Button>
+                                <Text> </Text>
+                                <Button block Primary onPress={()=>this.submit('sm3')} >
+                                    <Text>ยืนยัน</Text>
                                 </Button>
                             </Container>
                         </View>
@@ -159,14 +259,18 @@ export default class Lesson1Screen extends React.Component {
                                 <H1> </H1>
                                 <H1>    4) จงตอบคำถามต่อไปนี้</H1>
                                 <Text> </Text>
-                                <Button block success onPress={this.No4T} disabled={!this.state.No4True}>
+                                <Button block success onPress={()=>this.onPressInChoice('No4T')}  disabled={!this.state.No4True}>
                                     <Icon name='ios-checkmark-circle' />
                                     <Text>เป็น</Text>
                                 </Button>
                                 <Text> </Text>
-                                <Button block danger onPress={this.No4F} disabled={!this.state.No4False} >
+                                <Button block danger onPress={()=>this.onPressInChoice('No4F')}  disabled={!this.state.No4False} >
                                     <Icon name='ios-close-circle' />
                                     <Text>ไม่เป็น</Text>
+                                </Button>
+                                <Text> </Text>
+                                <Button block Primary onPress={()=>this.submit('sm4')} >
+                                    <Text>ยืนยัน</Text>
                                 </Button>
                                 <Text> </Text>
 
